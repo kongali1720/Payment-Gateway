@@ -3,12 +3,15 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Topic-Payment%20Gateway-blueviolet?style=for-the-badge" alt="Topic" />
   <img src="https://img.shields.io/badge/Status-Learning-brightgreen?style=for-the-badge" alt="Status" />
-  <img src="https://img.shields.io/badge/License-MIT-blueviolet?style=for-the-badge" alt="License" />
   <img src="https://img.shields.io/github/stars/kongali1720/visa-mc-transaction?style=for-the-badge&logo=github" alt="Stars" />
   <img src="https://img.shields.io/github/forks/kongali1720/visa-mc-transaction?style=for-the-badge&logo=github" alt="Forks" />
   <img src="https://img.shields.io/github/languages/top/kongali1720/visa-mc-transaction?style=for-the-badge&logo=github" alt="Top Language" />
   <img src="https://img.shields.io/github/last-commit/kongali1720/visa-mc-transaction?style=for-the-badge&logo=github" alt="Last Commit" />
   <img src="https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge&logo=github" alt="Build Status" />
+  <img src="https://img.shields.io/badge/C%2B%2B-17-blue?style=for-the-badge&logo=c%2B%2B" alt="C++ Version" />
+  <img src="https://img.shields.io/badge/License-MIT-blueviolet?style=for-the-badge" alt="License" />
+</p>
+
 </p>
 
 ---
@@ -19,13 +22,24 @@
 
 ---
 
+<h2 align="center">⚠️ Disclaimer</h2>
 <p align="center">
-## 📖 Deskripsi
-Mini project edukatif yang mensimulasikan alur transaksi **Payment Gateway**:  
-dari pemegang kartu → merchant → payment gateway → acquirer → issuer → settlement.  
-Tujuan: memahami **authorization, authentication, clearing, settlement**, jenis transaksi, dan keamanan kartu digital.  
-Cocok untuk belajar **Cyber Security, FinTech, dan blockchain payment insight**.
+Project ini bersifat edukatif dan **tidak boleh digunakan untuk transaksi nyata**.  
+Semua data kartu dan transaksi hanya untuk pembelajaran.
 </p>
+
+---
+
+<h2 align="center">📖 Deskripsi</h2>
+
+<p align="center">
+Mini project edukatif yang mensimulasikan alur transaksi <b>Payment Gateway</b>:  
+dari pemegang kartu → merchant → payment gateway → acquirer → issuer → settlement.  
+Tujuan: memahami <b>authorization, authentication, clearing, settlement</b>,  
+jenis transaksi, dan keamanan kartu digital.  
+Cocok untuk belajar <b>Cyber Security, FinTech, dan blockchain payment insight</b>.
+</p>
+
 
 ---
 
@@ -102,18 +116,16 @@ Cocok untuk belajar **Cyber Security, FinTech, dan blockchain payment insight**.
 ---
 
 <h2 align="center">🚀 Alur Transaksi (Basic Flow)</h2>
+
 <p align="center">
-1. <b>Authorization</b>  
-   Pemegang kartu → Merchant → Payment Gateway → Acquirer Bank → Card Network → Issuer Bank → Approve/Reject  
 
-2. <b>Authentication (Opsional)</b>  
-   3D Secure (Verified by Visa / Mastercard SecureCode) → OTP atau challenge  
+| Langkah | Penjelasan |
+|:-------:|------------|
+| Authorization | Pemegang kartu → Merchant → Payment Gateway → Acquirer Bank → Card Network → Issuer Bank → Approve/Reject |
+| Authentication (Opsional) | 3D Secure (Verified by Visa / Mastercard SecureCode) → OTP atau challenge |
+| Clearing | Transaksi disetujui → dikumpulkan dalam batch untuk diproses |
+| Settlement | Uang dikirim dari Issuer Bank → Acquirer Bank → Merchant (T+1 sampai T+3 hari kerja) |
 
-3. <b>Clearing</b>  
-   Transaksi disetujui → dikumpulkan dalam batch untuk diproses  
-
-4. <b>Settlement</b>  
-   Uang dikirim dari Issuer Bank → Acquirer Bank → Merchant (T+1 sampai T+3 hari kerja)
 </p>
 
 ---
@@ -146,104 +158,130 @@ flowchart TD
 
 ```
 
-<h2 align="center"> 📌 Penjelasan Alur</h2>
-<div align="center">
-
-Cardholder → Merchant
-Pemegang kartu memulai transaksi, memasukkan data kartu untuk pembelian.
-
-Merchant → Payment Gateway
-Merchant mengirimkan informasi pembayaran ke Payment Gateway untuk diproses.
-
-Payment Gateway → Acquirer Bank
-Gateway meneruskan data ke bank merchant (Acquirer Bank).
-
-Acquirer Bank → Card Network
-Transaksi dirutekan melalui jaringan kartu (VISA/Mastercard) ke Issuer Bank.
-
-Issuer Bank → Card Network
-Bank penerbit mengecek saldo dan validitas kartu, lalu approve atau reject.
-
-Card Network → Acquirer → Gateway → Merchant → Cardholder
-Hasil otorisasi dikirim balik sampai ke pemegang kartu sebagai konfirmasi.
-
-Optional Authentication (3D Secure / OTP)
-Jika diaktifkan, pemegang kartu harus melewati challenge/OTP untuk keamanan tambahan.
-
-Settlement (T+1/T+2/T+3)
-Dana ditransfer dari Issuer Bank ke Acquirer Bank, lalu ke merchant sesuai jadwal.
-
-</p> 
-
----
+<h2 align="center">📌 Penjelasan Alur Transaksi</h2>
 
 <p align="center">
-<h3>1. Jenis Payment Gateway</h3>
-- <b>Hosted Payment Page</b> – User diarahkan ke halaman payment gateway pihak ketiga. Contoh: PayPal, Midtrans.  
-- <b>API Payment Gateway</b> – Integrasi langsung ke website/app merchant. Contoh: Stripe API, Xendit API.  
-- <b>Local vs Global Gateway</b> – Local: khusus negara tertentu (BNI, Mandiri). Global: VISA, Mastercard, PayPal.
-</p>
 
-<p align="center">
-<h3>2. Komponen Utama</h3>
-- <b>Merchant Account</b> – Akun untuk menerima pembayaran dari Payment Gateway.  
-- <b>Payment Processor</b> – Proses transaksi antar bank dan network.  
-- <b>Acquirer Bank</b> – Bank merchant yang menerima pembayaran.  
-- <b>Issuer Bank</b> – Bank pemegang kartu.  
-- <b>Card Network</b> – VISA/Mastercard, sebagai penghubung antara Acquirer dan Issuer.
-</p>
+| Alur | Penjelasan |
+|:----:|------------|
+| Cardholder → Merchant | Pemegang kartu memulai transaksi, memasukkan data kartu untuk pembelian. |
+| Merchant → Payment Gateway | Merchant mengirimkan informasi pembayaran ke Payment Gateway untuk diproses. |
+| Payment Gateway → Acquirer Bank | Gateway meneruskan data ke bank merchant (Acquirer Bank). |
+| Acquirer Bank → Card Network | Transaksi dirutekan melalui jaringan kartu (VISA/Mastercard) ke Issuer Bank. |
+| Issuer Bank → Card Network | Bank penerbit mengecek saldo dan validitas kartu, lalu approve atau reject. |
+| Card Network → Acquirer → Gateway → Merchant → Cardholder | Hasil otorisasi dikirim balik sampai ke pemegang kartu sebagai konfirmasi. |
+| Optional Authentication (3D Secure / OTP) | Jika diaktifkan, pemegang kartu harus melewati challenge/OTP untuk keamanan tambahan. |
+| Settlement (T+1/T+2/T+3) | Dana ditransfer dari Issuer Bank ke Acquirer Bank, lalu ke merchant sesuai jadwal. |
 
-<p align="center">
-<h3>3. Jenis Transaksi yang Didukung</h3>
-- <b>Authorization</b> – Mengecek ketersediaan dana.  
-- <b>Capture / Settlement</b> – Transfer dana ke merchant.  
-- <b>Refund / Reversal</b> – Pengembalian dana ke customer.  
-- <b>Recurring / Subscription</b> – Pembayaran otomatis periodik.
-</p>
-
-<p align="center">
-<h3>4. Keamanan dan Compliance</h3>
-- <b>PCI DSS</b> – Standar keamanan data kartu.  
-- <b>3D Secure</b> – Verified by Visa / Mastercard SecureCode.  
-- <b>Tokenization</b> – Mengganti nomor kartu asli dengan token.  
-- <b>Fraud Detection</b> – Memantau transaksi mencurigakan.
-</p>
-
-<p align="center">
-<h3>5. Biaya dan Fee</h3>
-- <b>Transaction Fee</b> – Biaya setiap transaksi (persentase + flat).  
-- <b>Setup Fee</b> – Biaya awal integrasi gateway.  
-- <b>Cross-Border Fee</b> – Untuk kartu luar negeri.
-</p>
-
-<p align="center">
-<h3>6. Reporting & Dashboard</h3>
-- Monitoring transaksi real-time.  
-- Rekonsiliasi settlement & refund.  
-- Analitik transaksi: top products, peak hours, failed payments.
 </p>
 
 ---
 
-<h2 align="center">📌 Penjelasan Lanjutan Payment Gateway</h2>
+<h2 align="center">📌 Jenis & Komponen Payment Gateway</h2>
+
+<p align="center">
+
+| No | Topik | Penjelasan |
+|:--:|-------|------------|
+| 1 | Jenis Payment Gateway | - Hosted Payment Page: User diarahkan ke halaman payment gateway pihak ketiga (contoh: PayPal, Midtrans)<br>- API Payment Gateway: Integrasi langsung ke website/app merchant (contoh: Stripe API, Xendit API)<br>- Local vs Global Gateway: Local (BNI, Mandiri), Global (VISA, Mastercard, PayPal) |
+| 2 | Komponen Utama | - Merchant Account: Akun untuk menerima pembayaran<br>- Payment Processor: Proses transaksi antar bank & network<br>- Acquirer Bank: Bank merchant yang menerima pembayaran<br>- Issuer Bank: Bank pemegang kartu<br>- Card Network: VISA/Mastercard, sebagai penghubung antara Acquirer dan Issuer |
+| 3 | Jenis Transaksi yang Didukung | - Authorization: Mengecek ketersediaan dana<br>- Capture/Settlement: Transfer dana ke merchant<br>- Refund/Reversal: Pengembalian dana ke customer<br>- Recurring/Subscription: Pembayaran otomatis periodik |
+| 4 | Keamanan & Compliance | - PCI DSS: Standar keamanan data kartu<br>- 3D Secure: Verified by Visa/Mastercard SecureCode<br>- Tokenization: Mengganti nomor kartu asli dengan token<br>- Fraud Detection: Memantau transaksi mencurigakan |
+| 5 | Biaya & Fee | - Transaction Fee: Biaya setiap transaksi (persentase + flat)<br>- Setup Fee: Biaya awal integrasi gateway<br>- Cross-Border Fee: Untuk kartu luar negeri |
+| 6 | Reporting & Dashboard | - Monitoring transaksi real-time<br>- Rekonsiliasi settlement & refund<br>- Analitik transaksi: top products, peak hours, failed payments |
+
+</p>
+
+---
 
 <p align="center">
 Payment Gateway tidak hanya memproses transaksi, tapi juga memastikan <b>keamanan, kepatuhan, dan efisiensi</b> alur pembayaran. Beberapa poin penting yang perlu dipahami:
 </p>
 
+<h2 align="center">🔹 Poin Penting Payment Gateway</h2>
+
 <p align="center">
-- <b>Integrasi Gateway</b>: Melalui API atau Hosted Page. Merchant harus menyiapkan callback/webhook untuk konfirmasi transaksi.<br>
-- <b>Error Handling</b>: Gateway memberikan response code seperti Approved, Declined, Insufficient Funds, Card Expired. Merchant wajib menangani setiap skenario.<br>
-- <b>Multi-Currency & Conversion</b>: Mendukung berbagai mata uang dengan konversi real-time.<br>
-- <b>Settlement Timing</b>: Dana dikirim ke merchant sesuai T+1/T+2/T+3, mempengaruhi cashflow bisnis.<br>
-- <b>Fraud Prevention</b>: CVV, AVS, 3D Secure, tokenization, dan monitoring IP untuk mencegah penipuan.<br>
-- <b>Reporting & Analytics</b>: Merchant memperoleh dashboard laporan transaksi, refund, failed payments, dan insight bisnis.<br>
-- <b>Compliance & Regulation</b>: Mematuhi PCI DSS dan regulasi lokal/internasional terkait data kartu kredit.<br>
-- <b>Future Trends</b>: Gateway berbasis blockchain, crypto, dan open banking untuk settlement instan.
+
+| Poin | Penjelasan |
+|:----:|------------|
+| Integrasi Gateway | Melalui API atau Hosted Page. Merchant harus menyiapkan callback/webhook untuk konfirmasi transaksi. |
+| Error Handling | Gateway memberikan response code seperti Approved, Declined, Insufficient Funds, Card Expired. Merchant wajib menangani setiap skenario. |
+| Multi-Currency & Conversion | Mendukung berbagai mata uang dengan konversi real-time. |
+| Settlement Timing | Dana dikirim ke merchant sesuai T+1/T+2/T+3, mempengaruhi cashflow bisnis. |
+| Fraud Prevention | CVV, AVS, 3D Secure, tokenization, dan monitoring IP untuk mencegah penipuan. |
+| Reporting & Analytics | Merchant memperoleh dashboard laporan transaksi, refund, failed payments, dan insight bisnis. |
+| Compliance & Regulation | Mematuhi PCI DSS dan regulasi lokal/internasional terkait data kartu kredit. |
+| Future Trends | Gateway berbasis blockchain, crypto, dan open banking untuk settlement instan. |
+
 </p>
+
 
 <p align="center">
 Memahami poin-poin ini membantu developer dan merchant membuat sistem pembayaran yang <b>aman, efisien, dan transparan</b>.
+</p>
+
+---
+
+<p align="center">
+  Contoh implementasi Payment Gateway sederhana menggunakan C++:  
+  Authorization, Authentication, Settlement, Refund, dan Full Transaction.
+</p>
+
+---
+
+<h2 align="center">📂 Daftar File</h2>
+
+<p align="center">
+
+| File | Deskripsi | Cara Run |
+|:----:|-----------|:--------:|
+| `authorization.cpp` | Implementasi Authorization kartu | `g++ authorization.cpp -o authorization && ./authorization` |
+| `authentication.cpp` | Implementasi 3D Secure / OTP | `g++ authentication.cpp -o authentication && ./authentication` |
+| `settlement.cpp` | Implementasi Settlement ke merchant | `g++ settlement.cpp -o settlement && ./settlement` |
+| `refund.cpp` | Implementasi Refund ke pemegang kartu | `g++ refund.cpp -o refund && ./refund` |
+| `transaction.cpp` | Full Transaction: Authorization → Authentication → Settlement | `g++ transaction.cpp -o transaction && ./transaction` |
+
+</p>
+
+
+---
+
+<h2 align="center">💻 Cara Jalankan Project</h2>
+
+<p align="center">
+
+```bash
+# Clone repository
+git clone https://github.com/kongali1720/payment-gateway-cpp.git
+cd payment-gateway-cpp
+
+# Pastikan sudah ada C++ compiler (g++)
+# Compile & jalankan file yang diinginkan
+g++ nama_file.cpp -o nama_output
+./nama_output
+```
+
+<h2 align="center">📖 Penjelasan Singkat Payment Gateway</h2>
+
+<p align="center">
+
+| Langkah | Penjelasan Singkat |
+|:-------:|------------------|
+| Authorization | Memeriksa saldo & validitas kartu |
+| Authentication | OTP / 3D Secure challenge |
+| Settlement | Transfer dana ke merchant |
+| Refund | Pengembalian dana ke pemegang kartu |
+| Full Transaction | Menggabungkan semua langkah di atas |
+
+</p>
+
+---
+
+<h2 align="center">📜 License</h2>
+
+<p align="center">
+This project is licensed under the <a href="LICENSE">MIT License</a>.<br>
+You are free to use, modify, and distribute this project under the terms of MIT.
 </p>
 
 ---
